@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="1024" height="768" style="border:1px solid #aaa;display: block;margin: 50px auto">
+        <!-- 当前浏览器不支持，请更换浏览器 -->
+    </canvas>
+    <script>
+        var tagarr = [
+            {
+                p: [{ x: 0, y: 0 }, { x: 800, y: 0 }, { x: 400, y: 400 }],
+                color: "#caff67"
+            },
+            {
+                p: [{ x: 0, y: 0 }, { x: 400, y: 400 }, { x: 0, y: 800 }],
+                color: "#67becf"
+            }, {
+                p: [{ x: 800, y: 0 }, { x: 800, y: 400 }, { x: 600, y: 600 }, { x: 600, y: 200 }],
+                color: "#ef3d61"
+            }, {
+                p: [{ x: 600, y: 200 }, { x: 600, y: 600 }, { x: 400, y: 400 }],
+                color: "#f9f51a"
+            }, {
+                p: [{ x: 400, y: 400 }, { x: 600, y: 600 }, { x: 400, y: 800 }, { x: 200, y: 600 }],
+                color: "#a594c0"
+            }, {
+                p: [{ x: 200, y: 600 }, { x: 400, y: 800 }, { x: 0, y: 800 }],
+                color: "#fa8ecc"
+            }, {
+                p: [{ x: 800, y: 400 }, { x: 800, y: 800 }, { x: 400, y: 800 }],
+                color: "#f6ca29"
+            }
+        ]
+        window.onload = function () {
+            var canvas = document.getElementById("canvas")
+            canvas.width = 800
+            canvas.height = 800
+            var context = canvas.getContext("2d")
+            for (let i = 0; i < tagarr.length; i++) {
+                draw(tagarr[i], context)
+            }
+        }
+        function draw(lines, ctx) {
+            ctx.beginPath()
+            ctx.moveTo(lines.p[0].x, lines.p[0].y)//画笔落在第一个起点上
+            for (let i = 1; i < lines.p.length; i++) {
+                ctx.lineTo(lines.p[i].x, lines.p[i].y);
+            }
+            ctx.closePath();
+            ctx.fillStyle = lines.color;
+            ctx.fill();
+            ctx.strokeStyle = lines.color;
+                ctx.stroke();
+
+        }
+    </script>
+</body>
+
+</html>

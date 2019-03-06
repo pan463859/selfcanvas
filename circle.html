@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="1024" height="768" style="border:1px solid #aaa;display: block;margin: 50px auto">
+        <!-- 当前浏览器不支持，请更换浏览器 -->
+    </canvas>
+</body>
+
+</html>
+<script>
+    window.onload = function () {
+        var canvas = document.getElementById('canvas')
+        canvas.width = 1024;
+        canvas.height = 768;
+        if (canvas.getContext('2d')) {
+            var context = canvas.getContext('2d')
+        }
+        else {
+            alert('当前浏览器不支持Canvas，请更换浏览器再试')
+        }
+        context.lineWidth = 5
+        context.strokeStyle = "#005588"
+        for (let i = 0; i < 10; i++) {
+            context.beginPath()
+            context.arc(50 + i * 100, 60, 40, 0, 2 * Math.PI * (i + 1) / 10)
+            context.closePath()
+            context.stroke()
+            context.fillStyle = "black"
+            context.fill()
+        }
+        for (let i = 0; i < 10; i++) {
+            context.beginPath()
+            context.arc(50 + i * 100, 200, 40, 0, 2 * Math.PI * (i + 1) / 10)
+            // context.closePath()
+            context.stroke()
+        }
+        for (let i = 0; i < 10; i++) {
+            context.beginPath()
+            context.arc(50 + i * 100, 400, 40, 0, 2 * Math.PI * (i + 1) / 10, true)
+            context.closePath()
+            context.stroke()
+        }
+        for (let i = 0; i < 10; i++) {
+            context.beginPath()
+            context.arc(50 + i * 100, 600, 40, 0, 2 * Math.PI * (i + 1) / 10, true)
+            // context.closePath()
+            context.stroke()
+        }
+    }
+
+</script>
