@@ -5,6 +5,8 @@ const MARGIN_TOP = 60;
 const MARGIN_LEFT = 30;
 const ENDTIME = new Date(2019, 2, 6, 18, 30, 00)
 var currentSeconds = 0
+//x y 坐标 g 加速度，vx 水平舒服 vy 垂直速度
+var ball = { x: 512, y: 100, r: 20, g: 2, vx: -4, vy: 0, color: "#005588" }
 window.onload = function () {
     var canvas = document.getElementById('canvas')
     var context = canvas.getContext('2d')
